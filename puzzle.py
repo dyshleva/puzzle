@@ -7,11 +7,13 @@ def line_check(board: list) -> bool:
     True
     >>> line_check(["**** ****", "***1 ****", "**  321**", "* 4 111**", "     9 5 ", " 67383  *", "3   1  **", "  8  2***", "  2  ****"])
     False
+    >>> line_check(["**** ****", "***1 ****", "**  321**", "* 40111**", "     905 ", " 67383  *", "3   1  **", "  8  2***", "  2  ****"])
+    False
     '''
     board = [row.replace('*', '').replace(' ', '') for row in board] 
     result = [set(row.replace('*', '').replace(' ', '')) for row in board]
     for index, elem in enumerate(board):
-        if len(elem) != len(result[index]):
+        if len(elem) != len(result[index]) or '0' in elem:
             return False
     return True
 
