@@ -1,4 +1,4 @@
-def line_check(board):
+def line_check(board: list) -> bool:
     '''
     Check for same digits in row
     :param (board) : input board
