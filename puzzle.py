@@ -86,17 +86,22 @@ def block_check(board:list) -> bool:
  "  22 ****"])
     False
     """
-    i = 1
-    while i <= 5:
-        numbers = ""
-        numbers += board[-i][i-1:i+4]
-        j = i
-        while j <= i+4:
-            numbers += board[-j][i-1]
-            j += 1
-        if len(set(numbers.replace(" ",""))) != len(numbers.replace(" ","")) or "0" in numbers:
+ start = [0, 8]
+    for column in range(5):
+        lst = [board[start[1]-column][start[0] +
+                                      column+1:start[0]+5+column].replace(" ", "")]
+        lst = list("".join(lst))
+
+        sset = set(board[start[1]-column][start[0] +
+                  column:start[0]+5+column].replace(" ", ""))
+
+        new = set([board[start[1]-4-column:start[1]-column+1][i][start[0]+column].replace(" ", "")
+                  for i in range(5)])
+        lst += [n for n in new if n.isdigit()]
+        set2 = set([n for n in new if n.isdigit()])
+       
+        if len(lst) != len(sset.union(set2)):
             return False
-        i+=1
     return True
 
 
