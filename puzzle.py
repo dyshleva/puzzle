@@ -7,7 +7,7 @@ def column_check(board):
 def block_check(board):
     pass
 
-def final_check(board):
+def final_check(board: list) -> bool:
     '''
     >>> final_check([
  "**** ****",
