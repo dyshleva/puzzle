@@ -100,6 +100,39 @@ def block_check(board:list) -> bool:
     return True
 
 
-def final_check(board):
-    pass
+def validate_board(board: list) -> bool:
+    """
+    check all
+    Args:
+        board (list): playboard
+    Returns:
+        bool: True if no same digits in every color block, else False
+    >>> validate_board([\
+ "**** ****",\
+ "***1 ****",\
+ "**  3****",\
+ "* 4 1****",\
+ "     9 5 ",\
+ " 6  83  *",\
+ "3   1  **",\
+ "  8  2***",\
+ "  2  ****"])
+    False
+    >>> validate_board([\
+ "**** ****",\
+ "***1 ****",\
+ "**  3****",\
+ "* 4 1****",\
+ "     9 5 ",\
+ " 6  83  *",\
+ "3   7  **",\
+ "  8  2***",\
+ "  2  ****"])
+    True
+    """
+    if line_check(board) and column_check(board) and block_check(board):
+        return True
+    return False
+
+
 
