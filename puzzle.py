@@ -7,6 +7,6 @@ def column_check(board):
 def block_check(board):
     pass
 
-def final_check(column, ryadok, block):
+def final_check(board):
     pass
 
